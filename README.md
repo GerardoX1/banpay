@@ -1,13 +1,33 @@
 # banpay
-El proyecto consiste en desarrollar un bot que se apalanque de LLMs para simular el comportamiento de un agente comercial.
+Este challenge es una oportunidad para que muestres tu código
+más limpio, que demuestres cómo solucionas problemas.
+• Escribe el código como si fuera a producción
+• No importa el stack tech que emplees, con qué herramienta o
+lenguaje la soluciones
+• Asegúrate de dejar instrucciones claras de cómo ejecutar tu
+código como si fuera a desplegarse en producción
 
-Este bot tiene las siguientes capacidades:
-- API en Python
-- Responder información básica sobre la propuesta de valor
-- Reducir las alucinaciones dentro del chatbot
-- Tolerancia a errores en la redacción y ortografia
-- Brindar recomendaciones
-
+Challenge
+Desarrollar un API REST de usuarios, considerando al menos los
+siguientes servicios:
+• Creación de usuario
+• Obtención de todos los usuarios
+• Obtención de un usuario específico
+• Actualización de un usuario
+• Borrado de usuario(s)
+Los usuarios deben tener un rol (admin, films, people, locations,
+species, vehicles) y poder consumir un GET de Studio Ghibli API, de
+acuerdo a su rol
+Necesitamos que la solución al reto la entregues en un repositorio
+público de GitHub, Bitbucket o GitLab.
+Lo que revisaremos en este reto es:
+• Arquitectura
+• Claridad
+• Calidad del código
+• Seguridad
+• Decisiones técnicas
+• Escalabilidad
+• Distribución
 
 ## Requisitos
 - Python 3.11+
