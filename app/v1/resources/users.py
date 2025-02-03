@@ -5,7 +5,8 @@ from presentation.status import Status
 from app.libs.mongo_handler import get_repository
 from app.v1.exceptions.handler import exception_handler
 from app.v1.flows.users import UserFlow
-from app.v1.schemas.users import UserPost
+from app.v1.schemas.query_params import QueryInput
+from app.v1.schemas.users import UserPatch, UserPost
 
 router = APIRouter()
 
@@ -26,10 +27,25 @@ async def post_users(
 # ? [GET] <— /v1/users
 @router.get("")
 @exception_handler(response_status=Status.OK)
-async def get_users(
+async def paginated_query_users(
     request: Request,
     response: Response,
     repository: MongoRepository = Depends(get_repository),
 ) -> dict:
+    query_params = QueryInput(**request.query_params)
     flow = UserFlow(repository=repository)
-    return flow.get_all()
+    return flow.paginated_query(query_params)
+
+
+# ? [PATCH] <— /v1/users
+@router.patch("/{user_id}")
+@exception_handler(response_status=Status.OK)
+async def paginated_query_users(
+    request: Request,
+    response: Response,
+    user_id: str,
+    repository: MongoRepository = Depends(get_repository),
+) -> dict:
+    body = UserPatch(**await request.json())
+    flow = UserFlow(repository=repository)
+    return flow.update(user_id, body)
